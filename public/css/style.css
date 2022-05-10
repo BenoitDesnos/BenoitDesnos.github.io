@@ -42,13 +42,13 @@
     transform: translateZ(0px) translateX(0px) translateY(0px);
   }
   25% {
-    transform: translateZ(100px) translateX(100px) translateY(-60px);
+    transform: translateZ(250px) translateX(100px) translateY(0px);
   }
   50% {
-    transform: translateZ(50px) translateX(-40px) translateY(-200px);
+    transform: translateZ(0px) translateX(-40px) translateY(-100px);
   }
   75% {
-    transform: translateZ(100px) translateX(-125px) translateY(-50px);
+    transform: translateZ(250px) translateX(-125px) translateY(50px);
   }
   100% {
     transform: translateZ(0px) translateX(0px) translateY(0px);
@@ -59,13 +59,13 @@
     transform: translateZ(0px) translateX(0px) translateY(0px);
   }
   25% {
-    transform: translateZ(-200px) translateX(300px) translateY(-100px);
+    transform: translateZ(200px) translateX(100px) translateY(-50px);
   }
   50% {
-    transform: translateZ(-300px) translateX(-300px) translateY(-100px);
+    transform: translateZ(300px) translateX(-250px) translateY(50px);
   }
   75% {
-    transform: translateZ(0px) translateX(-300px) translateY(0px);
+    transform: translateZ(100px) translateX(100px) translateY(0px);
   }
   100% {
     transform: translateZ(0px) translateX(0px) translateY(0px);
@@ -1275,24 +1275,41 @@ input[type=submit]:hover {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background-color: #dbd0c0;
+  background-color: transparent;
 }
 .wrapper .background__container {
   position: relative;
   display: flex;
   justify-content: center;
-  height: 100%;
+  height: 200%;
   transform-style: preserve-3d;
-  z-index: 0;
+  background-color: none;
 }
 .wrapper .background__container .background {
-  z-index: 0;
+  z-index: 100;
   position: absolute;
   animation: parralax 40s linear backwards infinite;
+  background-image: url(./../../img/bg-progressive2.jpeg);
+  width: 110%;
+  height: 110vh;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: top;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  overflow: visible;
 }
 @media screen and (max-width: 700px) {
   .wrapper .background__container .background {
+    width: 200%;
+    height: 100vh;
     animation: parralax-mobile 40s linear backwards infinite;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: top;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    overflow: visible;
   }
 }
 

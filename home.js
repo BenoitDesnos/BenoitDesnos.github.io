@@ -160,6 +160,9 @@ loop();
 const headerContacts = document.querySelectorAll(".header__top__contacts");
 
 function injectimages() {
+  console.log(window);
+  console.log(window.innerWidth);
+  console.log(window.outerWidth);
   if (window.innerWidth < 700) {
     headerContacts[0].innerHTML = `<a href="tel:0767867799"><img src="./img/logo-telephone.svg" alt="tel"></a> `;
     headerContacts[1].innerHTML = ` <a href="mailto:benoit.desnos66@gmail.com"><img src="./img/logo-mail.svg" alt="mail"></a>`;
