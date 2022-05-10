@@ -4,7 +4,6 @@ const nav = document.querySelector(".nav");
 const header = document.querySelector(".header");
 const linkSelector = document.querySelectorAll(".nav__link");
 const scrollTop = document.querySelector(".scroll-top-wrap");
-console.log(scrollTop);
 
 function addClassLists() {
   linkSelector.forEach((links) => {
@@ -24,15 +23,15 @@ function removeClassLists() {
 }
 
 function navScroll() {
-  if (window.scrollY > 1) {
+  if (window.scrollY > 1 && window.innerWidth <= 2000) {
     addClassLists();
   } else if (window.scrollY < 100) {
     removeClassLists();
+  } else if (window.innerWidth >= 2000 && window.scrollY > 1) {
+    addClassLists();
   }
 }
-
 window.addEventListener("scroll", navScroll);
-
 //------- Anim logo --------------
 const logo = document.querySelector(".circle");
 function animLogoComputer() {
@@ -69,23 +68,36 @@ observerWidthPage.observe(header);
 const hamburger = document.querySelector(".hamburger");
 const pages = document.querySelectorAll(".nav__link, .logo");
 const wholePage = document.querySelectorAll("article, aside");
+const main = document.querySelector("main");
 
 let clickCounter = 0;
-let newWidth = 0;
+let newWidth = window.innerWidth;
+let updateOffset = 0;
+
+//----- to reset nav position if standard non mobile nav's showing----
+window.addEventListener("resize", function () {
+  newWidth = window.innerWidth;
+  console.log(newWidth);
+  if (newWidth < 700) {
+    hideNav();
+    clickCounter = 0;
+  } else if (newWidth >= 700) {
+    updateOffset = main.offsetLeft;
+    console.log(updateOffset);
+    nav.style.left = `${updateOffset}px`;
+  }
+});
 
 function hideNav() {
-  nav.style.left = "-200px";
+  nav.style.left = "-150px";
   hamburger.classList.remove("is-active");
 }
 function showNav() {
-  nav.style.left = "0px";
+  nav.style.left = updateOffset;
   hamburger.classList.add("is-active");
 }
 
 function showHideNav() {
-  if (window.innerWidth > 700) {
-    nav.style.left = "0px";
-  }
   clickCounter++;
 
   if (clickCounter % 2 === 0) {
@@ -101,7 +113,7 @@ wholePage.forEach((element) => {
     clickCounter = 0;
     hideNav();
     if (window.innerWidth > 700) {
-      nav.style.left = "0px";
+      nav.style.left = `${updateOffset}px`;
     }
   });
 });
@@ -113,19 +125,9 @@ pages.forEach((page) => {
     clickCounter = 0;
     hideNav();
     if (window.innerWidth > 700) {
-      nav.style.left = "0px";
+      nav.style.left = `${updateOffset}px`;
     }
   });
-});
-
-//----- to reset nav position if standard non mobile nav's showing----
-window.addEventListener("resize", function () {
-  newWidth = window.innerWidth;
-  if (newWidth < 700) {
-    nav.style.left = "-150px";
-  } else {
-    nav.style.left = "0px";
-  }
 });
 
 // ------ Status presentation --------------
@@ -160,9 +162,6 @@ loop();
 const headerContacts = document.querySelectorAll(".header__top__contacts");
 
 function injectimages() {
-  console.log(window);
-  console.log(window.innerWidth);
-  console.log(window.outerWidth);
   if (window.innerWidth < 700) {
     headerContacts[0].innerHTML = `<a href="tel:0767867799"><img src="./img/logo-telephone.svg" alt="tel"></a> `;
     headerContacts[1].innerHTML = ` <a href="mailto:benoit.desnos66@gmail.com"><img src="./img/logo-mail.svg" alt="mail"></a>`;
