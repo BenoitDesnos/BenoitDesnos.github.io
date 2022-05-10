@@ -1,0 +1,123 @@
+@mixin header-nav-margin {
+  margin: 15px $margin-header 15px $margin-header;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+}
+
+@mixin skills-flex-properties {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+
+}
+
+// mixin project
+@mixin border($colour: $colour-primary) {
+  border: 0.1rem solid $colour;
+}
+
+@mixin img-ratio {
+  width: 90%;
+  margin: 10px auto 10px auto;
+  display: block;
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+
+  & img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+
+    transform: translate(-50%, -50%);
+  }
+}
+
+@mixin after-titles {
+  position: relative;
+  text-align: center;
+
+  &::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 35px;
+    height: 4px;
+    background-color: $link-hover;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 120%;
+  }
+}
+
+//------------about mixins -------------
+
+@mixin formation-grid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 4fr 3fr;
+  grid-auto-columns: minmax(auto, 200px);
+  grid-auto-rows: minmax(56px, auto);
+  grid-column-gap: 10px;
+  grid-template-areas:
+    "img line skill1"
+    "img line skill2"
+    "img line skill3"
+    "img line skill4"
+    "img line skill5";
+
+  @include mobile-only {
+    grid-template-columns: 1fr 3fr 2fr;
+    grid-auto-rows: minmax(28px, auto);
+    top: 53%;
+  }
+
+
+}
+
+//----------- mobile mixins --------------
+
+@mixin mobile-only {
+  @media screen and (max-width: map-get($breakpoints, mobile)) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: map-get($breakpoints, tablet)) {
+    @content;
+  }
+}
+
+@mixin nav-mobile-properties {
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  width: 150px;
+  left: -150px;
+  transition: left 0.6s ease;
+  top: 45px;
+  background-color: $nav-bg-scrolled;
+  z-index: 2;
+  box-shadow: none;
+}
+
+@mixin skills-img-mobile {
+  img {
+    @include mobile-only {
+      width: 45px;
+      height: 45px;
+    }
+  }
+}

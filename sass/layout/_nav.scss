@@ -1,0 +1,93 @@
+.nav {
+  display: flex;
+  background-color: $transparent-color;
+  height: 70px;
+  top: 60px;
+  width: 100%;  
+  transition: all 0.4s $cubic-scroll-nav;
+
+  @include mobile-only {
+    @include nav-mobile-properties;
+  }
+  &--margin {
+    @include header-nav-margin;
+    @include mobile-only {
+      flex-direction: column-reverse;
+      justify-content: space-evenly;
+      margin: 0;
+      height: 100%;
+    }
+  }
+  &--scrolled {
+    background-color: $nav-bg-scrolled;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    z-index: 1;
+    box-shadow: 0px 2px 3px $nav-box-shadow;
+    transition: all 0.4s $cubic-scroll-nav;
+    @include mobile-only {
+      @include nav-mobile-properties;
+    }
+  }
+  ul:first-child {
+    @include mobile-only {
+      justify-content: center;
+      .logo {
+        width: 100px;
+        height: 100px;
+        
+      }
+    }
+  }
+  ul:nth-child(2){
+    img{
+      max-width: 60px;
+      max-height: 60px;
+      &:hover{
+        filter: invert(50%) sepia(37%) saturate(4949%) hue-rotate(333deg) brightness(89%) contrast(104%);        
+      }
+      @include mobile-only {
+        max-width: 45px;
+        max-height: 45px;
+      }
+    }
+  }
+  ul {
+    @include mobile-only {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    li {
+      white-space: nowrap;
+      @include mobile-only {
+        margin-top: 20px;
+      }
+    }
+    .circle {
+      height: 70px;
+      width: 70px;
+      transition: all 0.5s;
+      overflow: hidden;
+      z-index: 2;
+        position: relative;
+      @include mobile-only {
+        width: 100px;
+        height: 100px;
+      }
+      img {
+        width: 100%;
+        transition: all 0.5s;
+        
+        &:hover {
+          border-radius: 50%;
+          transition: all 0.5s;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,136 @@
+@font-face {
+  font-family: 'designerregular';
+  src: url('./../../fonts/designer-webfont.woff2') format('woff2'),
+    url('./../../fonts/designer-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'times_sans_serifregular';
+  src: url('./../../fonts/timess__-webfont.woff2') format('woff2'),
+    url('./../../fonts/timess__-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'stamp_actregular';
+  src: url('./../../stampact-webfont.woff2') format('woff2'),
+    url('./../../stampact-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+
+body {
+  font-family: times_sans_serifregular, sans-serif;
+  color: $light-text-color;
+  font-size: map-get($font-size, basic);
+  font-weight: 100;
+  line-height: 1.7;
+
+  @include tablet {
+    font-size: map-get($font-size, basic) * 0.8;
+  }
+
+  @include mobile-only {
+    font-size: map-get($font-size, basic) * 0.7;
+  }
+}
+
+h1 {
+  font-family: designerregular, sans-serif;
+  font-weight: 800;
+  font-size: map-get($font-size, title1);
+  font-style: normal;
+  color: $dark-text-color;
+
+  +p {
+    text-align: center;
+  }
+
+
+  @include tablet {
+    font-size: map-get($font-size, title1) * 0.8;
+  }
+
+  @include mobile-only {
+    font-size: map-get($font-size, title1) * 0.5;
+  }
+}
+
+h2 {
+  font-family: times_sans_serifregular, sans-serif;
+  font-weight: 600;
+  padding-bottom: 20px;
+  color: $dark-text-color;
+  font-size: map-get($font-size, title2);
+
+  @include tablet {
+    font-size: map-get($font-size, title2) * 0.8;
+  }
+
+  @include mobile-only {
+    font-size: map-get($font-size, title2) * 0.5;
+  }
+}
+
+h3 {
+  color: $dark-text-color;
+  font-family: times_sans_serifregular, sans-serif;
+  font-weight: 500;
+  font-size: map-get($font-size, title3);
+
+  @include tablet {
+    font-size: map-get($font-size, title3) * 0.6;
+  }
+
+  @include mobile-only {
+    font-size: map-get($font-size, title3) * 0.5;
+  }
+
+  text-align: center;
+}
+
+p {
+  text-align: justify;
+  font-size: map-get($font-size, paragraph);
+  font-weight: 400;
+  color: $paragraph-color;
+
+  @include tablet {
+    font-size: map-get($font-size, paragraph) * 0.9;
+  }
+
+
+}
+
+.nav li {
+  text-transform: uppercase;
+  font-weight: bold;
+
+
+}
+
+.header li {
+  font-size: map-get($font-size, headertop);
+
+  @include tablet {
+    font-size: map-get($font-size, headertop) * 0.8;
+  }
+
+  @include mobile-only {
+    font-size: map-get($font-size, headertop) * 0.7;
+  }
+}
+
+#container--status {
+  text-shadow: 2px 2px 8px $text-shadow;
+}

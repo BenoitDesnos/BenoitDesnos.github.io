@@ -1,0 +1,163 @@
+#skills__intro {
+  opacity: 0;
+
+  @include after-titles;
+}
+
+
+
+.container {
+  &__skills {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    margin: $margins-top-bottom;
+    padding-bottom: 20px;
+    position: relative;
+
+    @include mobile-only {
+
+
+      &::before {
+        content: "SOFT SKILLS";
+        text-align: center;
+        position: absolute;
+        left: 65%;
+        top: 75px;
+        max-width: 150px;
+        font-family: times_sans_serifregular, sans-serif;
+        font-weight: 800;
+        font-size: map-get($font-size, title1) * 0.4;
+        font-style: normal;
+        color: $dark-text-color;
+      }
+
+      &::after {
+        content: "HARD SKILLS";
+        text-align: center;
+        position: absolute;
+        right: 65%;
+        bottom: 75px;
+        max-width: 150px;
+
+        font-family: times_sans_serifregular, sans-serif;
+        font-weight: 800;
+        font-size: map-get($font-size, title1) * 0.4;
+        font-style: normal;
+        color: $dark-text-color;
+      }
+    }
+
+    @include mobile-only {
+      justify-content: space-evenly;
+      flex-direction: column;
+
+      p {
+        font-size: map-get($font-size, paragraph) * 0.8;
+
+        @include mobile-only {
+          font-size: map-get($font-size, paragraph) * 1.1;
+        }
+      }
+    }
+
+    p {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    &--soft {
+      @include skills-flex-properties;
+
+      @include mobile-only {
+
+        margin-bottom: 50px;
+      }
+
+      .hover-skills-soft {
+        justify-content: flex-end;
+        opacity: 0;
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+        min-width: 200px;
+
+        @include mobile-only {
+          padding-right: none;
+          flex-direction: row-reverse;
+          justify-content: flex-end;
+        }
+
+        &:hover {
+          filter: invert(38%) sepia(42%) saturate(2979%) hue-rotate(339deg) brightness(95%) contrast(91%);
+        }
+      }
+
+      img {
+        margin-left: $margin-skills;
+        width: 60px;
+        height: auto;
+
+        @include mobile-only {
+          margin-left: 0;
+          margin-right: $margin-skills * 0.5;
+          width: 40px;
+          height: auto;
+        }
+      }
+    }
+
+    >img {
+      width: 345px;
+      height: auto;
+      opacity: 0;
+
+      @include tablet {
+        width: 200px;
+        height: 200px;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      @include mobile-only {
+        display: none;
+      }
+    }
+
+    &--hard {
+      @include skills-flex-properties;
+
+      .hover-skills-hard {
+        justify-content: flex-start;
+        opacity: 0;
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+        min-width: 200px;
+
+        @include mobile-only {
+          padding-left: none;
+          justify-content: flex-start;
+          flex-direction: row-reverse;
+        }
+
+        &:hover {
+          filter: invert(38%) sepia(42%) saturate(2979%) hue-rotate(339deg) brightness(95%) contrast(91%);
+        }
+      }
+
+      img {
+        margin-right: $margin-skills;
+        width: 60px;
+        height: auto;
+
+        @include mobile-only {
+          width: 40px;
+          height: auto;
+          margin-left: $margin-skills*0.5;
+        }
+      }
+    }
+  }
+}

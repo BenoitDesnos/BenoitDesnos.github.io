@@ -1,0 +1,246 @@
+.container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  z-index: 0;
+  overflow: hidden;
+  padding: 50px 5% 0 5%;
+  color: $light-text-color;
+
+  @include mobile-only {
+    width: 100%;
+    padding: 50px 30px 0 30px;
+  }
+
+  &>* {
+    max-width: 90%;
+
+    @include mobile-only {
+      max-width: 100%;
+    }
+  }
+
+  &:before,
+  &:after {
+    content: " ";
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 20px;
+    box-sizing: border-box;
+  }
+
+  &:before {
+    box-shadow: 8px 0 15px -12px inset;
+    right: 20px;
+
+    @include tablet {
+      right: 10px;
+    }
+
+    @include mobile-only {
+      box-shadow: none;
+    }
+  }
+
+  &:after {
+    box-shadow: -8px 0 15px -12px inset;
+    left: 20px;
+
+    @include tablet {
+      left: 10px;
+    }
+
+    @include mobile-only {
+      box-shadow: none;
+    }
+  }
+}
+
+.container:first-of-type {
+
+  &:before,
+  &:after {
+    box-shadow: none;
+  }
+}
+
+.container.container-even {
+  background-color: $main-color;
+  color: $paragraph-color;
+}
+
+.container-odd:nth-of-type(n) {
+  display: flex;
+  justify-content: center;
+  align-items: Center;
+  color: $dark-text-color;
+  height: 25vh;
+  width: 100%;
+  background-image: url(./../../img/wallaper.jpg);
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: top;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+  /* cursor: none; */
+  .oddCover {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    /*  z-index: 1000; */
+
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #2a2a2a;
+
+  .footer__sides {
+    width: 100%;
+    height: 50px;
+    background-color: #222;
+  }
+
+  .footer__middle {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-auto-columns: minmax(auto, auto);
+    justify-items: left;
+    align-content: center;
+    position: relative;
+    width: 80%;
+    min-height: 300px;
+    margin: auto;
+    height: 250px;
+    background-color: #2a2a2a;
+
+
+    @include mobile-only {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      height: 500px;
+    }
+
+    ul {
+      word-wrap: break-word;
+      padding-left: 16px;
+      font-size: 1.5REM;
+
+      @include tablet {
+        padding-left: 13px;
+        font-size: 1.2REM;
+      }
+
+      @include mobile-only {
+        font-size: 1.5REM;
+      }
+    }
+
+    li {
+
+      &:nth-child(1) {
+        list-style-type: "\1F4ED";
+      }
+
+      &:nth-child(2) {
+        list-style-type: "\1F4DE";
+      }
+
+      &:nth-child(3) {
+        list-style-type: "\1F4E7";
+      }
+
+      &:nth-child(4) {
+        list-style-type: "\1F30D";
+      }
+    }
+
+    h3 {
+      color: $main-color;
+      letter-spacing: 1px;
+      text-align: left;
+    }
+
+    img {
+
+      width: 50%;
+      min-width: 100px;
+      max-width: 250px;
+      max-height: auto;
+
+      @include mobile-only {
+        width: 250px;
+      }
+
+    }
+
+    .footer__contacts {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: left;
+      flex-direction: column;
+
+      @include mobile-only {
+        padding-left: 10px;
+
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 3px;
+        height: 200px;
+        border-left: $main-color 2px solid;
+        left: -10px;
+
+        @include mobile-only {
+          border-top: $main-color 2px solid;
+          border-left: none;
+          width: 50%;
+          height: 3px;
+          left: 25%;
+          top: -20px;
+
+        }
+      }
+    }
+  }
+
+}
+
+.mouse {
+  position: absolute;
+  z-index: 1;
+  border-radius: 1500px;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  opacity: 0;
+  transition: opacity 0.5s;
+
+}
+
+#cursor {
+  background: #2128bd;
+  width: 14px;
+  height: 14px;
+}
+
+#mouse1 {
+  height: 75px;
+  width: 75px;
+  background: white;
+  transition: top 0.05s ease-out, left 0.05s ease-out, opacity 0.5s;
+}

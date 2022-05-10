@@ -1,0 +1,331 @@
+button {
+  background: none;
+  position: absolute;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+
+  &.hamburger {
+    background-color: transparent;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 10px;
+    top: 10px;
+    height: 30px;
+
+    >span {
+      display: none;
+      width: 25px;
+      height: 2px;
+      background-color: $light-text-color;
+      margin-top: 5px;
+      transition: 1s;
+
+      @include mobile-only {
+        display: inline-block;
+      }
+    }
+
+    &:active span:nth-child(2) {
+      transform: translateX(10px);
+      background-color: rgb(236, 0, 0);
+      transition: 1s;
+    }
+
+    &.is-active span:nth-child(1) {
+      transform: translate(0px, 7px) rotate(45deg);
+      transition: 1s;
+    }
+
+    &.is-active span:nth-child(2) {
+      opacity: 0;
+      transform: translatex(0);
+      transition: all 1s;
+    }
+
+    &.is-active span:nth-child(3) {
+      transform: translate(0px, -7px) rotate(-45deg);
+      transition: 1s;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $links;
+  max-height: 70px;
+
+  @include mobile-only {
+    max-height: none;
+    color: $links;
+  }
+
+  &.nav__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 70px;
+    padding-top: 4px;
+    border-bottom: 4px solid rgba(0, 0, 0, 0);
+    margin-left: 20px;
+    letter-spacing: 2px;
+    transition: 0.4s ease;
+
+    @include tablet {
+      padding-top: 3px;
+      border-bottom: 3px solid rgba(0, 0, 0, 0);
+    }
+
+    @include mobile-only {
+      height: auto;
+    }
+
+    @include mobile-only {
+      margin-left: 0;
+    }
+
+    &:hover {
+      animation: link-hover 0.4s ease forwards;
+
+      @include tablet {
+        animation: link-hover-tablet 0.4s ease forwards;
+      }
+
+      @include mobile-only {
+        animation: none;
+      }
+    }
+
+    &--active {
+      border-bottom: 4px solid $link-hover;
+      color: $link-hover;
+      opacity: 1;
+
+      img {
+        filter: invert(50%) sepia(37%) saturate(4949%) hue-rotate(333deg) brightness(89%) contrast(104%);
+      }
+
+      @include tablet {
+        border-bottom: 3px solid $link-hover;
+      }
+
+      @include mobile-only {
+        border-bottom: 3px solid rgba(0, 0, 0, 0);
+      }
+    }
+  }
+
+  &:visited {
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: $link-hover;
+    transition: 0.4s ease;
+  }
+}
+
+.scroll-btn {
+  display: inline-block;
+  position: fixed;
+  padding-top: 0px;
+  border-radius: 0px;
+  left: 100%;
+  border: none;
+  background-color: $transparent-color-light;
+  border-radius: 5px 0px 0px 5px;
+  width: 30px;
+  height: 70px;
+  z-index: 1000;
+  transition: 0.2s;
+
+  &#scroll__up {
+    transform: translate(0%, -100%);
+    top: 49%;
+
+    a span:nth-of-type(2) {
+
+      border-left: 3px solid $link-hover;
+      border-top: 3px solid $link-hover;
+    }
+
+  }
+
+  &#scroll__down {
+    display: inline-block;
+    transform: translate(-100%, 0);
+    top: 51%;
+
+    a span:nth-of-type(2) {
+
+      border-left: 3px solid $link-hover;
+      border-bottom: 3px solid $link-hover;
+
+    }
+  }
+
+  &#scroll__up a * {
+    -webkit-transform: translateY(75%) rotate(45deg);
+    transform: translateY(75%) rotate(45deg);
+    left: 50%;
+    border-left: 3px solid $dark-text-color;
+    border-top: 3px solid $dark-text-color;
+    transform-origin: top left;
+  }
+
+  &#scroll__down a * {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+    left: 50%;
+    border-left: 3px solid $dark-text-color;
+    border-bottom: 3px solid $dark-text-color;
+    margin-top: 11px;
+
+    @include mobile-only {
+      margin-top: 11px;
+    }
+  }
+}
+
+.scroll-btn a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
+
+.scroll-btn a * {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  opacity: 1;
+  box-sizing: border-box;
+}
+
+.scroll-btn a span:nth-of-type(1) {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+.scroll-btn a span:nth-of-type(2) {
+  top: 16px;
+  -webkit-animation-delay: .15s;
+  animation-delay: .15s;
+
+}
+
+.scroll-btn a span:nth-of-type(3) {
+  top: 32px;
+  -webkit-animation-delay: .3s;
+  animation-delay: .3s;
+  /* border-left: 3px solid $dark-text-color;
+  border-bottom: 3px solid $dark-text-color; */
+}
+
+
+@keyframes scroll-down {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+/* Scroll button wrap (for second pulse) */
+
+.scroll-top-wrap {
+  width: 30px;
+  height: 30px;
+  display: block;
+  background: $paragraph-color;
+  background-size: 12px;
+  border-radius: 100%;
+  position: fixed;
+  z-index: 99;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.5s;
+
+  &--active {
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
+
+
+  &:hover {
+    animation: scroll-top-wrap 1.2s ease infinite running;
+
+    span {
+      animation: arrow 1.2s ease infinite running;
+    }
+  }
+}
+
+@keyframes scroll-top-wrap {
+  15% {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.692);
+  }
+
+  18% {
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.692);
+  }
+
+  50% {
+    box-shadow: 0px 0px 0px 7px rgba(250, 118, 41, 0);
+  }
+}
+
+/* Scroll Button arrow + Animation */
+
+.scroll-top-wrap span {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-left: 3px solid $light-text-color;
+  border-bottom: 3px solid $light-text-color;
+  -webkit-transform: rotate(-225deg);
+  transform: translate(-50%, -50%) rotate(-225deg);
+  left: 50%;
+  top: 50%;
+  margin-top: 3px;
+
+
+
+
+}
+
+@keyframes arrow {
+  20% {
+    margin-top: 0px;
+  }
+
+  30% {
+    margin-top: 2px;
+  }
+
+  50% {
+    margin-top: 3px;
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "benoit-desnos-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./public/css/style.css --style expanded",
+    "prefix": "postcss ./public/css/style.css --use autoprefixer -d ./public/css/prefixed/"
+  },
+  "author": "",
+  "browserslist": "last 4 versions",
+  "license": "ISC",
+  "dependencies": {
+    "@react-spring/parallax": "^9.4.4"
+  }
+}
