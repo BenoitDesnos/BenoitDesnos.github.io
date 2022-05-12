@@ -77,13 +77,13 @@ let updateOffset = 0;
 //----- to reset nav position if standard non mobile nav's showing----
 window.addEventListener("resize", function () {
   newWidth = window.innerWidth;
-  console.log(newWidth);
+
   if (newWidth < 700) {
     hideNav();
     clickCounter = 0;
   } else if (newWidth >= 700) {
     updateOffset = main.offsetLeft;
-    console.log(updateOffset);
+
     nav.style.left = `${updateOffset}px`;
   }
 });

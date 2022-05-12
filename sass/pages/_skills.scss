@@ -16,36 +16,48 @@
     padding-bottom: 20px;
     position: relative;
 
+    .covers {
+      display: block;
+      position: absolute;
+      overflow: hidden;
+      width: 0%;
+      height: 100%;
+      background-color: black;
+    }
+
+    H1 {
+      display: none;
+    }
+
     @include mobile-only {
 
 
-      &::before {
-        content: "SOFT SKILLS";
+      H1 {
+        display: block;
+        opacity: 0;
         text-align: center;
         position: absolute;
-        left: 65%;
-        top: 75px;
-        max-width: 150px;
+        width: 120PX;
         font-family: times_sans_serifregular, sans-serif;
         font-weight: 800;
         font-size: map-get($font-size, title1) * 0.4;
         font-style: normal;
         color: $dark-text-color;
+
+        left: 0;
+        top: 0;
       }
 
-      &::after {
-        content: "HARD SKILLS";
-        text-align: center;
-        position: absolute;
+      .cover-soft {
+        @include covers-properties;
+        left: 65%;
+        top: 75px;
+      }
+
+      .cover-hard {
+        @include covers-properties;
         right: 65%;
         bottom: 75px;
-        max-width: 150px;
-
-        font-family: times_sans_serifregular, sans-serif;
-        font-weight: 800;
-        font-size: map-get($font-size, title1) * 0.4;
-        font-style: normal;
-        color: $dark-text-color;
       }
     }
 

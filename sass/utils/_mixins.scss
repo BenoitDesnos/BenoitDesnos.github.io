@@ -82,8 +82,14 @@
     grid-auto-rows: minmax(28px, auto);
     top: 53%;
   }
+}
 
-
+@mixin covers-properties {
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  width: 120PX;
+  height: 95px;
 }
 
 //----------- mobile mixins --------------

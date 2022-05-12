@@ -109,12 +109,18 @@ function animSkills(tag) {
   const skills = document.querySelectorAll("." + tag + "__skills");
   for (let i = 0; i < skills.length; i++) {
     let delay = ["0.5s", "1s", " ", "1.5s", "2s"];
-    skills[i].style.animation = `opacity-skills 2s ${delay[i]} forwards`;
+    skills[i].style.animation = `opacity-skills-about 2s ${delay[i]} forwards`;
   }
 }
 
 function showFormation() {
-  if (window.scrollY >= 2400 && window.scrollY <= 3200) {
+  let scrolledToBottom = window.scrollY + window.innerHeight;
+  let pageHeight = document.body.offsetHeight; // ou document.body.offsetHeight
+  if (window.innerWidth < 700) {
+    pageHeight -= 1200;
+  }
+  let scrollValue = scrolledToBottom / pageHeight;
+  if (scrollValue > 0.57 && scrollValue < 0.67) {
     animImage(0);
     animLines("gea");
     animSkills("gea");
