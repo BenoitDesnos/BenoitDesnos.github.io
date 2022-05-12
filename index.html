@@ -8,9 +8,32 @@
     <link rel="stylesheet" href="public/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap" rel="stylesheet"
         rel="stylesheet">
-    <title>Benoit Desnos's Portfolio</title>
     <meta name="despcription"
         content="Venez découvrir mon portfolio, Je suis actuellement en recherche d'alternance dans la région de Montpellier, Benoit Desnos.">
+    <title>Benoit Desnos's Portfolio</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('7rq8AL2AY9SpbZ6pX');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById('contact-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('service_mbshy4c', 'contact_form', this)
+                    .then(function () {
+                        console.log('SUCCESS!');
+                    }, function (error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -432,12 +455,14 @@
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div class="contacts__form" method="post">
-                    <form action="action.php">
+                    <form id="contact-form" action="">
+
                         <div class="Name-container form-containers">
                             <div class="form__imgs">
                                 <img src="./img/form-name.svg" alt="image" loading="lazy">
                             </div>
-                            <input type="text" autocomplete="off" id="Name" placeholder="Nom / Prénom" required>
+                            <input type="text" autocomplete="off" id="Name" name="user_name" placeholder="Nom / Prénom"
+                                required>
                             <div class="form__required">
                                 *
                             </div>
@@ -447,7 +472,7 @@
                                 <img src="./img/form-business.svg" alt="image" loading="lazy">
                             </div>
                             <input type="text" autocomplete="off" id="business" placeholder="Entreprise / Ecole"
-                                required>
+                                name="user_business" required>
                             <div class="form__required">
                                 *
                             </div>
@@ -456,7 +481,8 @@
                             <div class="form__imgs">
                                 <img src="./img/form-email.svg" alt="image" loading="lazy">
                             </div>
-                            <input type="mail" autocomplete="off" id="Email" placeholder="Email" required>
+                            <input type="mail" autocomplete="off" id="Email" placeholder="Email" name="user_email"
+                                required>
                             <div class="form__required">
                                 *
                             </div>
@@ -466,22 +492,23 @@
                             <div class="form__imgs">
                                 <img src="./img/form-phone.svg" alt="image" loading="lazy">
                             </div>
-                            <input type="tel" autocomplete="off" id="tel" placeholder="Téléphone">
+                            <input type="tel" autocomplete="off" id="tel" name="user_phone" placeholder="Téléphone">
                         </div>
                         <div class="reasons-container form-containers">
                             <label for="reasons">Pour quelles raisons souhaitez-vous me contacter?</label>
-                            <select name="reasons" id="reasons" required>
+                            <select name="user_purpose" id="reasons" required>
                                 <option value="null" selected>Défault</option>
                                 <option value="Feedback">Feedback</option>
-                                <option value="HTML5">Alternance</option>
-                                <option value="CSS">Formation</option>
-                                <option value="JAVASCRIPT">Entretien</option>
+                                <option value="Alternance">Alternance</option>
+                                <option value="Formation">Formation</option>
+                                <option value="Entretien">Entretien</option>
                                 <option value="Autre">Autre</option>
                             </select>
                         </div>
                         <div class="explications-container form-containers">
-                            <textarea name="explications" id="explications" rows="10" cols="50"
-                                placeholder="Je ne suis toujours pas formé pour récuperer les données envoyées par mon formulaire, merci de me contacter par mail ou téléphone !"></textarea>
+                            <textarea name="message" id="explications" rows="10" cols="50"
+                                placeholder="Exprimez-vous !"></textarea>
+                            <input type="hidden" name="contact_number">
 
                         </div>
                         <input type="submit" value="Valider">
