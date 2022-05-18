@@ -1,6 +1,7 @@
 $main-color: #dbd0c0;
 $light-text-color: #faeee0;
 $dark-text-color: #000000;
+$dark-color: #866042;
 $transparent-color: #0000008c;
 $transparent-color-light: #ffffff60;
 $text-shadow: #000000;
@@ -32,8 +33,7 @@ $heading-shadow-size: 0.55rem;
 $layout-margin: 3rem;
 $grid-gutter: $layout-margin * 0.8;
 
-$font-size: (
-  basic: 1.5rem,
+$font-size: (basic: 1.5rem,
   title1: 7rem,
   title2: 3.5rem,
   title3: 2.2rem,
@@ -43,7 +43,6 @@ $font-size: (
   headertop: 1.7rem,
 
 );
-$breakpoints: (
-  mobile: 700px,
+$breakpoints: (mobile: 700px,
   tablet: 1024px,
 );

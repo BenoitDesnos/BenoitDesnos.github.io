@@ -744,6 +744,56 @@ a:hover {
     margin-top: 3px;
   }
 }
+.proj-prev__buttons {
+  position: absolute;
+  bottom: -45;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 20px;
+  width: 100%;
+  background-color: #d5c9b6;
+}
+.proj-prev__buttons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+  background-color: #866042;
+  border-radius: 10px;
+  color: white;
+  transition: 0.3s;
+}
+.proj-prev__buttons a:hover {
+  transform: translateY(-5px);
+  -webkit-box-shadow: 0px 10px 13px -7px #866042, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #866042, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+@media screen and (max-width: 1024px) {
+  .proj-prev__buttons a {
+    width: 75px;
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .proj-prev__buttons a {
+    width: 60px;
+    font-size: 0.8rem;
+  }
+}
+.proj-prev__buttons a:first-child {
+  background-color: #000000;
+}
+.proj-prev__buttons a:first-child:hover {
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+.proj-prev__buttons button {
+  position: relative;
+}
+
 .header {
   z-index: 2;
   display: flex;
@@ -1614,7 +1664,7 @@ input[type=submit].error {
   grid-template-columns: repeat(2, 1fr);
   width: 70%;
   margin: 50px 0 50px 0;
-  grid-column-gap: 10%;
+  grid-column-gap: 5%;
 }
 @media screen and (max-width: 700px) {
   .container .proj-grid {
@@ -1625,13 +1675,15 @@ input[type=submit].error {
 .proj-prev {
   color: #000000;
   background-color: #c8b8a0;
-  margin-bottom: 2.4rem;
-  overflow-y: hidden;
+  margin-bottom: 70px;
+  height: auto;
+  position: relative;
 }
 .proj-prev__image {
   border-radius: 20px;
   margin: 0;
   opacity: 0.7;
+  height: auto;
   width: 90%;
   margin: 10px auto 10px auto;
   display: block;
@@ -1649,7 +1701,17 @@ input[type=submit].error {
 }
 .proj-prev__text {
   background-color: #d5c9b6;
-  height: 100%;
+  height: auto;
+}
+@media screen and (max-width: 1024px) {
+  .proj-prev__text {
+    min-height: 100px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .proj-prev__text {
+    min-height: 100px;
+  }
 }
 .proj-prev__heading {
   font-size: 2rem;
@@ -1658,6 +1720,11 @@ input[type=submit].error {
   padding-bottom: 0px;
   margin: 0;
   line-height: 6rem;
+}
+@media screen and (max-width: 1024px) {
+  .proj-prev__heading {
+    font-size: 1.4rem;
+  }
 }
 @media screen and (max-width: 700px) {
   .proj-prev__heading {
