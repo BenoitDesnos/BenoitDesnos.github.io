@@ -7,6 +7,7 @@ const arrowRight = document.querySelector(".arrow__right");
 const cross = document.querySelector(".cross");
 const popup = document.querySelector(".popup");
 const cards = document.querySelectorAll(".cover");
+const aboutDev = document.querySelector(".about__dev p");
 
 function scrollRight() {
   formationGea.style.left = "-2000px";
@@ -133,4 +134,25 @@ window.addEventListener("load", injectHtml("gendarmerie"));
 window.onresize = byPassOnResize;
 cross.addEventListener("click", () => {
   popup.style.display = "none";
+});
+
+//-----------Open text personnal description -------------
+const readMore = document.getElementById("readMore");
+console.log(aboutDev);
+readMore.addEventListener("click", () => {
+  aboutDev.classList.add("toggle");
+  readMore.style.opacity = "0";
+  readLess.style.opacity = "1";
+  readLess.style.zIndex = "2";
+
+  console.log("test");
+});
+
+console.log(aboutDev);
+readLess.addEventListener("click", () => {
+  aboutDev.classList.remove("toggle");
+  readMore.style.opacity = "1";
+  readLess.style.opacity = "0";
+  readLess.style.zIndex = "0";
+  console.log("test");
 });
