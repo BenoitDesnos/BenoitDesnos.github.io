@@ -2182,6 +2182,11 @@ strong {
     max-height: 125px;
   }
 }
+@media screen and (max-width: 700px) {
+  .about__dev p {
+    max-height: 150px;
+  }
+}
 .about__dev p.toggle {
   overflow-y: none;
   max-height: 2000px;

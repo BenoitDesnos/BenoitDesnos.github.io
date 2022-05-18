@@ -518,6 +518,10 @@ strong {
     @include tablet {
       max-height: 125px;
     }
+
+    @include mobile-only {
+      max-height: 150px;
+    }
   }
 
   p.toggle {
