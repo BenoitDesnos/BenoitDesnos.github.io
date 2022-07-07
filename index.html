@@ -516,11 +516,11 @@
                 <div class="contacts__map">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.611592697332!2d3.8649522156892417!3d43.59623866412976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b6afb49de74f51%3A0x1e64d83a685b07cb!2s114%20Rue%20Guillaume%20Janvier%2C%2034070%20Montpellier!5e1!3m2!1sfr!2sfr!4v1649708663876!5m2!1sfr!2sfr"
-                        titel="map" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        title="map" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                <div class="contacts__form" method="post">
-                    <form id="contact-form" action="">
+                <div class="contacts__form">
+                    <form id="contact-form">
 
                         <div class="Name-container form-containers">
                             <div class="form__imgs">
@@ -546,7 +546,7 @@
                             <div class="form__imgs">
                                 <img src="./img/form-email.svg" alt="image" loading="lazy">
                             </div>
-                            <input type="mail" autocomplete="off" id="Email" placeholder="Email" name="user_mail"
+                            <input type="email" autocomplete="off" id="Email" placeholder="Email" name="user_mail"
                                 required>
                             <div class="form__required">
                                 *
@@ -562,7 +562,7 @@
                         <div class="reasons-container form-containers">
                             <label for="reasons">Pour quelles raisons souhaitez-vous me contacter?</label>
                             <select name="user_purpose" id="reasons" required>
-                                <option value="null" selected>Défault</option>
+                                <option value="" selected>Défault</option>
                                 <option value="Feedback">Feedback</option>
                                 <option value="Alternance">Alternance</option>
                                 <option value="Formation">Formation</option>
