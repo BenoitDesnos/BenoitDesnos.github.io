@@ -4,7 +4,6 @@ const formationGea = document.querySelector(".gea");
 const formationGendarmerie = document.querySelector(".gendarmerie");
 const arrowLeft = document.querySelector(".arrow__left");
 const arrowRight = document.querySelector(".arrow__right");
-const cross = document.querySelector(".cross");
 const popup = document.querySelector(".popup");
 const cards = document.querySelectorAll(".cover");
 const aboutDev = document.querySelector(".about__dev p");
@@ -132,7 +131,7 @@ window.addEventListener("scroll", showFormation);
 window.addEventListener("load", injectHtml("gea"));
 window.addEventListener("load", injectHtml("gendarmerie"));
 window.onresize = byPassOnResize;
-cross.addEventListener("click", () => {
+popup.addEventListener("mouseover", () => {
   popup.style.display = "none";
 });
 

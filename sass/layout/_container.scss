@@ -177,7 +177,6 @@ footer {
       width: 50%;
       min-width: 100px;
       max-width: 250px;
-      max-height: auto;
 
       @include mobile-only {
         width: 250px;
@@ -189,7 +188,6 @@ footer {
       position: relative;
       display: flex;
       justify-content: center;
-      align-items: left;
       flex-direction: column;
 
       @include mobile-only {

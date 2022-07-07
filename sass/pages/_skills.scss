@@ -96,7 +96,6 @@
         min-width: 200px;
 
         @include mobile-only {
-          padding-right: none;
           flex-direction: row-reverse;
           justify-content: flex-end;
         }
@@ -149,7 +148,7 @@
         min-width: 200px;
 
         @include mobile-only {
-          padding-left: none;
+
           justify-content: flex-start;
           flex-direction: row-reverse;
         }

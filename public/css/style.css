@@ -746,7 +746,7 @@ a:hover {
 }
 .proj-prev__buttons {
   position: absolute;
-  bottom: -45;
+  bottom: -45px;
   left: 0;
   display: flex;
   justify-content: space-around;
@@ -1178,7 +1178,6 @@ footer .footer__middle img {
   width: 50%;
   min-width: 100px;
   max-width: 250px;
-  max-height: auto;
 }
 @media screen and (max-width: 700px) {
   footer .footer__middle img {
@@ -1189,7 +1188,6 @@ footer .footer__middle .footer__contacts {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: left;
   flex-direction: column;
 }
 @media screen and (max-width: 700px) {
@@ -1393,7 +1391,6 @@ input[type=submit].error {
   justify-content: center;
   height: 200%;
   transform-style: preserve-3d;
-  background-color: none;
 }
 .wrapper .background__container .background {
   z-index: 100;
@@ -1558,7 +1555,6 @@ input[type=submit].error {
 }
 @media screen and (max-width: 700px) {
   .container__skills--soft .hover-skills-soft {
-    padding-right: none;
     flex-direction: row-reverse;
     justify-content: flex-end;
   }
@@ -1612,7 +1608,6 @@ input[type=submit].error {
 }
 @media screen and (max-width: 700px) {
   .container__skills--hard .hover-skills-hard {
-    padding-left: none;
     justify-content: flex-start;
     flex-direction: row-reverse;
   }
@@ -2255,7 +2250,6 @@ strong {
   }
 }
 .about__dev p.toggle {
-  overflow-y: none;
   max-height: 2000px;
   transition: max-height 1s ease-in-out;
 }
@@ -2304,30 +2298,6 @@ strong {
   .popup p {
     font-size: 1rem;
   }
-}
-.popup .cross {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 44px;
-  width: 30px;
-  position: absolute;
-  top: 0%;
-  right: 0%;
-  cursor: pointer;
-}
-.popup .cross span {
-  display: block;
-  width: 30px;
-  height: 2px;
-  background-color: white;
-  transform-origin: left center;
-}
-.popup .cross span:nth-of-type(1) {
-  transform: rotate(45deg);
-}
-.popup .cross span:nth-of-type(2) {
-  transform: rotate(-45deg);
 }
 .popup p {
   font-size: 4rem;

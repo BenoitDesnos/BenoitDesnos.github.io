@@ -7,17 +7,12 @@
   overflow: hidden;
   background-color: transparent;
 
-
   .background__container {
     position: relative;
     display: flex;
     justify-content: center;
     height: 200%;
     transform-style: preserve-3d;
-
-    background-color: none;
-
-
 
     .background {
       z-index: 100;
